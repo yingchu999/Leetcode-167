@@ -1,2 +1,2 @@
-# Leetcode-167
+# Leetcode
 Two Sum II - Input array is sorted
