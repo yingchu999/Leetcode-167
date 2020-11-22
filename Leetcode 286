@@ -1,0 +1,28 @@
+# BFS
+# Search for the 0 point, then append the around four points into the queue.
+# Then continue to pop the front element and append the surround fout points into the queue.
+
+if not rooms:
+    return []
+m = len(rooms)
+n = len(rooms[0])
+for i in range(m):
+    for j in range(n):
+        if rooms[i][j] == 0:
+            queue = collections.deque()
+            queue.append((i+1,j,1))
+            queue.append((i,j+1,1))
+            queue.append((i-1,j,1))
+            queue.append((i,j-1,1))
+            see = set()
+            while queue:
+                a,b,val = queue.popleft()
+                if a<0 or a>=m or b<0 or b>=n or rooms[a][b] in [0,-1] or (a,b) in see:
+                    continue
+
+                rooms[a][b] = min(rooms[a][b],val)
+                see.add((a,b))
+                queue.append((a+1,b,val+1))
+                queue.append((a,b+1,val+1))
+                queue.append((a-1,b,val+1))
+                queue.append((a,b-1,val+1))
