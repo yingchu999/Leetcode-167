@@ -21,7 +21,6 @@ return min(len(A)-count_a, len(B)-count_b) if res != 0 else -1
 # Ajusted
 
 res = float('inf')
-m = float('inf')
 for num in [A[0], B[0]]:
     count_a, count_b = 0, 0
     for i in range(len(A)):
